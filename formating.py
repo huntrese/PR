@@ -17,8 +17,9 @@ def format_json(dictionary):
         return result
 
     json_str = format_dict(dictionary)
-    print(json_str)
-    print(json.loads(json_str))
+    # print(json_str)
+    with open("formats/message.json","w") as file:
+        file.write(json_str)
 
 # Custom XML formatting
 def format_xml(dictionary):
@@ -35,5 +36,6 @@ def format_xml(dictionary):
         return result
 
     xml_str = f"<body>{format_dict(dictionary)}</body>"
-    print(xml_str)
-    print(parseString(xml_str))
+    # print(xml_str)
+    with open("formats/message.xml","w") as file:
+        file.write(xml_str)
