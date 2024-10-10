@@ -1,45 +1,64 @@
-from functools import reduce
-import pandas as pd
-import time
 import re
-from formating import *
-from custom_serialization import *
-data = pd.read_csv("item_data.csv")
+import time
+from functools import reduce
 
-data[['price', 'currency']] = data['price'].str.split(' ', expand=True)
-data['price'] = data['price'].str.replace("$", "").astype(float)
+import pandas as pd
 
-data['with_tax'] = data['with_tax'].apply(lambda x: float(re.sub(r'[^\d\.]+', '', ".".join(str(x).strip().split(".")[:2]))) if x != "none" else 0)
+from custom_serialization import decode_vdovmart, encode_vdovmart
+from formating import format_json, format_xml
 
-currency_mapping = {"USD": "GOLD", "GOLD": "USD"}
-data["currency"] = data["currency"].map(currency_mapping)
+def process_data(file_path):
+    # Read data
+    data = pd.read_csv(file_path)
 
-# print(data)
+    # Process price and currency
+    data[['price', 'currency']] = data['price'].str.split(' ', expand=True)
+    data['price'] = data['price'].str.replace("$", "").astype(float)
 
-prices = data["price"].to_list()
+    # Process 'with_tax' column
+    data['with_tax'] = data['with_tax'].apply(
+        lambda x: float(re.sub(r'[^\d\.]+', '', ".".join(str(x).strip().split(".")[:2])))
+        if x != "none" else 0
+    )
 
-print(list(filter(lambda x: x > 1, prices)))
-print(reduce(lambda x, y: x + y, prices))
-print(time.time())
+    # Map currency
+    currency_mapping = {"USD": "GOLD", "GOLD": "USD"}
+    data["currency"] = data["currency"].map(currency_mapping)
 
-data["time"] = time.time()
-data["total"] = reduce(lambda x, y: x + y, prices)
+    return data
 
-print(data)
+def main():
+    # Process data
+    data = process_data("item_data.csv")
+    prices = data["price"].to_list()
 
-format_json(data.to_dict())
-format_xml(data.to_dict())
+    # Perform operations
+    print(list(filter(lambda x: x > 1, prices)))
+    print(reduce(lambda x, y: x + y, prices))
+    print(time.time())
 
+    # Add new columns
+    data["time"] = time.time()
+    data["total"] = reduce(lambda x, y: x + y, prices)
 
+    print(data)
 
-encoded=encode_vdovmart(data.to_dict())
-with open("vdovmart/encoded.vdov","w",encoding="UTF-8") as file:
-    file.write(encoded)
+    # Format and encode data
+    format_json(data.to_dict())
+    format_xml(data.to_dict())
 
+    encoded = encode_vdovmart(data.to_dict())
+    with open("vdovmart/encoded.vdov", "w", encoding="UTF-8") as file:
+        file.write(encoded)
 
-message=decode_vdovmart(encoded)
-with open ("vdovmart/decoded.vdov","w",encoding="UTF-8") as file:
-    file.write(str(message))
+    # Decode and save
+    message = decode_vdovmart(encoded)
+    with open("vdovmart/decoded.vdov", "w", encoding="UTF-8") as file:
+        file.write(str(message))
 
-new_df=pd.DataFrame(message)
-print(data,new_df)
+    # Create new DataFrame and compare
+    new_df = pd.DataFrame(message)
+    print(data, new_df)
+
+if __name__ == "__main__":
+    main()
