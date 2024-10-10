@@ -1,0 +1,720 @@
+name:0
+	Dead Reckoning Chest
+0:name
+name:1
+	Fury of the Thunderhawk Loading Screen
+1:name
+name:2
+	Epaulettes of the Scorching Princess
+2:name
+name:3
+	Howls of the Northmarch - Belt
+3:name
+name:4
+	Compendium Umbra Rider Shield
+4:name
+name:5
+	Path of the Blossom Loading Screen
+5:name
+name:6
+	Tangled Tropics - Weapon
+6:name
+name:7
+	Plates of the Tree Punisher
+7:name
+name:8
+	Sovereign of the Menacing Guise
+8:name
+name:9
+	Faction of the Feather - Weapon
+9:name
+name:10
+	Inscribed Kills After Reincarnation
+10:name
+name:11
+	Belt of the Deepweed Drowner
+11:name
+name:12
+	The Abscesserator
+12:name
+name:13
+	Gown of the Charred Bloodline
+13:name
+name:14
+	Arms of Desolation
+14:name
+name:15
+	Heat of the Sixth Hell - Head
+15:name
+name:16
+	Manifold Paradox
+16:name
+name:17
+	Howls of the Northmarch - Shoulders
+17:name
+name:18
+	Auspicious Ancient Armor Breastplates
+18:name
+name:19
+	Faction of the Feather - Shoulder
+19:name
+name:20
+	Feast of Abscession - Back
+20:name
+name:21
+	Reaper's Wreath
+21:name
+name:22
+	Magus Accord
+22:name
+name:23
+	Head of the Lucent Gate
+23:name
+name:24
+	Inscribed Arms of Desolation
+24:name
+name:25
+	Oaths of the Beloved Loading Screen
+25:name
+name:26
+	Oaths of the Beloved - Legs
+26:name
+name:27
+	Tail of Defilement
+27:name
+name:28
+	Volcanic Sanctuary - Spiderling
+28:name
+name:29
+	Temple Gala - Weapon
+29:name
+price:0
+	0.24
+0:price
+price:1
+	0.03
+1:price
+price:2
+	0.03
+2:price
+price:3
+	0.03
+3:price
+price:4
+	0.03
+4:price
+price:5
+	0.03
+5:price
+price:6
+	0.03
+6:price
+price:7
+	0.03
+7:price
+price:8
+	0.03
+8:price
+price:9
+	0.03
+9:price
+price:10
+	0.04
+10:price
+price:11
+	0.03
+11:price
+price:12
+	5.7
+12:price
+price:13
+	0.03
+13:price
+price:14
+	7.16
+14:price
+price:15
+	0.03
+15:price
+price:16
+	21.21
+16:price
+price:17
+	0.03
+17:price
+price:18
+	0.06
+18:price
+price:19
+	0.03
+19:price
+price:20
+	0.82
+20:price
+price:21
+	5.07
+21:price
+price:22
+	13.11
+22:price
+price:23
+	0.03
+23:price
+price:24
+	6.37
+24:price
+price:25
+	0.03
+25:price
+price:26
+	0.03
+26:price
+price:27
+	0.03
+27:price
+price:28
+	0.03
+28:price
+price:29
+	0.03
+29:price
+quantity:0
+	32.91
+0:quantity
+quantity:1
+	10.203
+1:quantity
+quantity:2
+	2.057
+2:quantity
+quantity:3
+	17.641
+3:quantity
+quantity:4
+	1.714
+4:quantity
+quantity:5
+	1.266
+5:quantity
+quantity:6
+	23.32
+6:quantity
+quantity:7
+	1.62
+7:quantity
+quantity:8
+	402.0
+8:quantity
+quantity:9
+	11.831
+9:quantity
+quantity:10
+	285.0
+10:quantity
+quantity:11
+	1.863
+11:quantity
+quantity:12
+	605.0
+12:quantity
+quantity:13
+	887.0
+13:quantity
+quantity:14
+	373.0
+14:quantity
+quantity:15
+	12.758
+15:quantity
+quantity:16
+	539.0
+16:quantity
+quantity:17
+	18.152
+17:quantity
+quantity:18
+	39.0
+18:quantity
+quantity:19
+	14.724
+19:quantity
+quantity:20
+	1.804
+20:quantity
+quantity:21
+	543.0
+21:quantity
+quantity:22
+	237.0
+22:quantity
+quantity:23
+	2.039
+23:quantity
+quantity:24
+	460.0
+24:quantity
+quantity:25
+	15.05
+25:quantity
+quantity:26
+	15.599
+26:quantity
+quantity:27
+	154.0
+27:quantity
+quantity:28
+	17.224
+28:quantity
+quantity:29
+	6.015
+29:quantity
+with_tax:0
+	0.0
+0:with_tax
+with_tax:1
+	0.16
+1:with_tax
+with_tax:2
+	0.04
+2:with_tax
+with_tax:3
+	0.0
+3:with_tax
+with_tax:4
+	0.0
+4:with_tax
+with_tax:5
+	0.36
+5:with_tax
+with_tax:6
+	0.3
+6:with_tax
+with_tax:7
+	0.7
+7:with_tax
+with_tax:8
+	0.42
+8:with_tax
+with_tax:9
+	0.16
+9:with_tax
+with_tax:10
+	1.15
+10:with_tax
+with_tax:11
+	0.0
+11:with_tax
+with_tax:12
+	575.0
+12:with_tax
+with_tax:13
+	0.0
+13:with_tax
+with_tax:14
+	3519.98
+14:with_tax
+with_tax:15
+	1.67
+15:with_tax
+with_tax:16
+	1.207
+16:with_tax
+with_tax:17
+	0.0
+17:with_tax
+with_tax:18
+	0.0
+18:with_tax
+with_tax:19
+	0.16
+19:with_tax
+with_tax:20
+	0.0
+20:with_tax
+with_tax:21
+	35.8
+21:with_tax
+with_tax:22
+	0.0
+22:with_tax
+with_tax:23
+	0.0
+23:with_tax
+with_tax:24
+	0.0
+24:with_tax
+with_tax:25
+	0.0
+25:with_tax
+with_tax:26
+	0.0
+26:with_tax
+with_tax:27
+	0.0
+27:with_tax
+with_tax:28
+	0.0
+28:with_tax
+with_tax:29
+	0.0
+29:with_tax
+href:0
+	https://steamcommunity.com/market/listings/570/Dead%20Reckoning%20Chest
+0:href
+href:1
+	https://steamcommunity.com/market/listings/570/Fury%20of%20the%20Thunderhawk%20Loading%20Screen
+1:href
+href:2
+	https://steamcommunity.com/market/listings/570/Epaulettes%20of%20the%20Scorching%20Princess
+2:href
+href:3
+	https://steamcommunity.com/market/listings/570/Howls%20of%20the%20Northmarch%20-%20Belt
+3:href
+href:4
+	https://steamcommunity.com/market/listings/570/Compendium%20Umbra%20Rider%20Shield
+4:href
+href:5
+	https://steamcommunity.com/market/listings/570/Path%20of%20the%20Blossom%20Loading%20Screen
+5:href
+href:6
+	https://steamcommunity.com/market/listings/570/Tangled%20Tropics%20-%20Weapon
+6:href
+href:7
+	https://steamcommunity.com/market/listings/570/Plates%20of%20the%20Tree%20Punisher
+7:href
+href:8
+	https://steamcommunity.com/market/listings/570/Sovereign%20of%20the%20Menacing%20Guise
+8:href
+href:9
+	https://steamcommunity.com/market/listings/570/Faction%20of%20the%20Feather%20-%20Weapon
+9:href
+href:10
+	https://steamcommunity.com/market/listings/570/Inscribed%20Kills%20After%20Reincarnation
+10:href
+href:11
+	https://steamcommunity.com/market/listings/570/Belt%20of%20the%20Deepweed%20Drowner
+11:href
+href:12
+	https://steamcommunity.com/market/listings/570/The%20Abscesserator
+12:href
+href:13
+	https://steamcommunity.com/market/listings/570/Gown%20of%20the%20Charred%20Bloodline
+13:href
+href:14
+	https://steamcommunity.com/market/listings/570/Arms%20of%20Desolation
+14:href
+href:15
+	https://steamcommunity.com/market/listings/570/Heat%20of%20the%20Sixth%20Hell%20-%20Head
+15:href
+href:16
+	https://steamcommunity.com/market/listings/570/Manifold%20Paradox
+16:href
+href:17
+	https://steamcommunity.com/market/listings/570/Howls%20of%20the%20Northmarch%20-%20Shoulders
+17:href
+href:18
+	https://steamcommunity.com/market/listings/570/Auspicious%20Ancient%20Armor%20Breastplates
+18:href
+href:19
+	https://steamcommunity.com/market/listings/570/Faction%20of%20the%20Feather%20-%20Shoulder
+19:href
+href:20
+	https://steamcommunity.com/market/listings/570/Feast%20of%20Abscession%20-%20Back
+20:href
+href:21
+	https://steamcommunity.com/market/listings/570/Reaper%27s%20Wreath
+21:href
+href:22
+	https://steamcommunity.com/market/listings/570/Magus%20Accord
+22:href
+href:23
+	https://steamcommunity.com/market/listings/570/Head%20of%20the%20Lucent%20Gate
+23:href
+href:24
+	https://steamcommunity.com/market/listings/570/Inscribed%20Arms%20of%20Desolation
+24:href
+href:25
+	https://steamcommunity.com/market/listings/570/Oaths%20of%20the%20Beloved%20Loading%20Screen
+25:href
+href:26
+	https://steamcommunity.com/market/listings/570/Oaths%20of%20the%20Beloved%20-%20Legs
+26:href
+href:27
+	https://steamcommunity.com/market/listings/570/Tail%20of%20Defilement
+27:href
+href:28
+	https://steamcommunity.com/market/listings/570/Volcanic%20Sanctuary%20-%20Spiderling
+28:href
+href:29
+	https://steamcommunity.com/market/listings/570/Temple%20Gala%20-%20Weapon
+29:href
+currency:0
+	GOLD
+0:currency
+currency:1
+	GOLD
+1:currency
+currency:2
+	GOLD
+2:currency
+currency:3
+	GOLD
+3:currency
+currency:4
+	GOLD
+4:currency
+currency:5
+	GOLD
+5:currency
+currency:6
+	GOLD
+6:currency
+currency:7
+	GOLD
+7:currency
+currency:8
+	GOLD
+8:currency
+currency:9
+	GOLD
+9:currency
+currency:10
+	GOLD
+10:currency
+currency:11
+	GOLD
+11:currency
+currency:12
+	GOLD
+12:currency
+currency:13
+	GOLD
+13:currency
+currency:14
+	GOLD
+14:currency
+currency:15
+	GOLD
+15:currency
+currency:16
+	GOLD
+16:currency
+currency:17
+	GOLD
+17:currency
+currency:18
+	GOLD
+18:currency
+currency:19
+	GOLD
+19:currency
+currency:20
+	GOLD
+20:currency
+currency:21
+	GOLD
+21:currency
+currency:22
+	GOLD
+22:currency
+currency:23
+	GOLD
+23:currency
+currency:24
+	GOLD
+24:currency
+currency:25
+	GOLD
+25:currency
+currency:26
+	GOLD
+26:currency
+currency:27
+	GOLD
+27:currency
+currency:28
+	GOLD
+28:currency
+currency:29
+	GOLD
+29:currency
+time:0
+	1728483035.6416643
+0:time
+time:1
+	1728483035.6416643
+1:time
+time:2
+	1728483035.6416643
+2:time
+time:3
+	1728483035.6416643
+3:time
+time:4
+	1728483035.6416643
+4:time
+time:5
+	1728483035.6416643
+5:time
+time:6
+	1728483035.6416643
+6:time
+time:7
+	1728483035.6416643
+7:time
+time:8
+	1728483035.6416643
+8:time
+time:9
+	1728483035.6416643
+9:time
+time:10
+	1728483035.6416643
+10:time
+time:11
+	1728483035.6416643
+11:time
+time:12
+	1728483035.6416643
+12:time
+time:13
+	1728483035.6416643
+13:time
+time:14
+	1728483035.6416643
+14:time
+time:15
+	1728483035.6416643
+15:time
+time:16
+	1728483035.6416643
+16:time
+time:17
+	1728483035.6416643
+17:time
+time:18
+	1728483035.6416643
+18:time
+time:19
+	1728483035.6416643
+19:time
+time:20
+	1728483035.6416643
+20:time
+time:21
+	1728483035.6416643
+21:time
+time:22
+	1728483035.6416643
+22:time
+time:23
+	1728483035.6416643
+23:time
+time:24
+	1728483035.6416643
+24:time
+time:25
+	1728483035.6416643
+25:time
+time:26
+	1728483035.6416643
+26:time
+time:27
+	1728483035.6416643
+27:time
+time:28
+	1728483035.6416643
+28:time
+time:29
+	1728483035.6416643
+29:time
+total:0
+	60.38000000000001
+0:total
+total:1
+	60.38000000000001
+1:total
+total:2
+	60.38000000000001
+2:total
+total:3
+	60.38000000000001
+3:total
+total:4
+	60.38000000000001
+4:total
+total:5
+	60.38000000000001
+5:total
+total:6
+	60.38000000000001
+6:total
+total:7
+	60.38000000000001
+7:total
+total:8
+	60.38000000000001
+8:total
+total:9
+	60.38000000000001
+9:total
+total:10
+	60.38000000000001
+10:total
+total:11
+	60.38000000000001
+11:total
+total:12
+	60.38000000000001
+12:total
+total:13
+	60.38000000000001
+13:total
+total:14
+	60.38000000000001
+14:total
+total:15
+	60.38000000000001
+15:total
+total:16
+	60.38000000000001
+16:total
+total:17
+	60.38000000000001
+17:total
+total:18
+	60.38000000000001
+18:total
+total:19
+	60.38000000000001
+19:total
+total:20
+	60.38000000000001
+20:total
+total:21
+	60.38000000000001
+21:total
+total:22
+	60.38000000000001
+22:total
+total:23
+	60.38000000000001
+23:total
+total:24
+	60.38000000000001
+24:total
+total:25
+	60.38000000000001
+25:total
+total:26
+	60.38000000000001
+26:total
+total:27
+	60.38000000000001
+27:total
+total:28
+	60.38000000000001
+28:total
+total:29
+	60.38000000000001
+29:total
