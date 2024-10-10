@@ -33,12 +33,12 @@ format_xml(data.to_dict())
 
 
 encoded=encode_vdovmart(data.to_dict())
-with open("encoded.vdov","w",encoding="UTF-8") as file:
+with open("vdovmart/encoded.vdov","w",encoding="UTF-8") as file:
     file.write(encoded)
 
 
 message=decode_vdovmart(encoded)
-with open ("decoded.vdov","w",encoding="UTF-8") as file:
+with open ("vdovmart/decoded.vdov","w",encoding="UTF-8") as file:
     file.write(str(message))
 
 new_df=pd.DataFrame(message)

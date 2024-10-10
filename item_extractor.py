@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from helper import *
+from utils import *
 import time
 
 def format_item(name, price, quantity, href, buyers):
@@ -38,7 +38,7 @@ def get_items(data):
         path = href["href"].split(host)[1]
 
         new_data = send_https_request(host, port, path)
-        with open("second_response.html", "w", encoding="UTF-8") as file:
+        with open("/saved_responses/second_response.html", "w", encoding="UTF-8") as file:
             file.write(new_data)
 
         soup = BeautifulSoup(new_data, 'html.parser')
@@ -59,5 +59,5 @@ def get_items(data):
         time.sleep(1)
 
 if __name__ == "__main__":
-    with open("main_response.html", "r", encoding="UTF-8") as file:
+    with open("saved_responses/main_response.html", "r", encoding="UTF-8") as file:
         get_items(file)
