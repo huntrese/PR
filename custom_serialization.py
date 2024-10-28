@@ -1,4 +1,6 @@
 def encode_vdovmart(data):
+    if not isinstance(data, dict):
+        data=dict(data)
     encoded=""
     for key,values in data.items():
         for index, value in enumerate(values.values()):
@@ -8,7 +10,7 @@ def encode_vdovmart(data):
             encoded+=f"{start}\n\t{value}\n{end}\n"
     return encoded
 
-def decode_vdovmart(data):
+def decode_vdovmart(data,type="dict"):
     dic={}
     lines=[x for x in data.split("\n") if x]
 
@@ -42,5 +44,10 @@ def decode_vdovmart(data):
                 new_index += 1
         
         index += 1
-
+    if type=="list":
+        return list(dic.items())
+    if type=="set":
+        return set(dic.items())
+    if type=="tup":
+        return tuple((dic.keys(),dic.values()))
     return dic

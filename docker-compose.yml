@@ -3,6 +3,32 @@ services:
   lab1-http-server: # Name of your container
     image: nicug/server-pr-lab1:latest # The Docker image to use
     ports:
-      - "8000:8000" # Connect the port 8000 on your computer to port 8000 in the container
+      - "8000:8000" # Map port 8000 on your host to port 8000 in the container
     environment:
       - PORT=8000
+    depends_on:
+      - db
+    networks:
+      - lab_network
+
+  db:
+    image: mysql:latest
+    ports: 
+      - "3207:3306" # Map port 3306 in the container to port 3207 on the host
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password # Replace with your root password
+      MYSQL_DATABASE: lab_db             # Initial database name
+      MYSQL_USER: lab_user               # Custom database user
+      MYSQL_PASSWORD: lab_password       # Custom user password
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d # Mount the init directory
+    networks:
+      - lab_network
+
+volumes:
+  db_data:
+
+networks:
+  lab_network:
+    driver: bridge

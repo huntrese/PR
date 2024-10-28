@@ -20,6 +20,7 @@ def process_data(file_path):
         lambda x: float(re.sub(r'[^\d\.]+', '', ".".join(str(x).strip().split(".")[:2])))
         if x != "none" else 0
     )
+    
 
     # Map currency
     currency_mapping = {"USD": "GOLD", "GOLD": "USD"}
