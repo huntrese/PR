@@ -4,10 +4,9 @@
         <x-slot:middle class="!justify-end">
             <x-input 
                 placeholder="Search..." 
-                wire:model.defer="search" 
+                wire:model.lazy="search" 
                 clearable 
-                icon="o-magnifying-glass" 
-                @keydown.enter="$wire.updatedSearch()"
+                icon="o-magnifying-glass"
             />
         </x-slot:middle>
         <x-slot:actions>
@@ -16,8 +15,6 @@
                 wire:click="create" 
                 icon="o-plus" 
                 class="btn-primary mr-2"
-                wire:loading.attr="disabled"
-                wire:target="create"
             />
             <x-button 
                 label="Filters" 
@@ -36,18 +33,12 @@
             <div class="flex flex-row">
                 <x-button 
                     icon="o-pencil" 
-                    wire:click="update({{ $user['item_id'] }})" 
-                    wire:loading.attr="disabled"
-                    wire:target="update({{ $user['item_id'] }})"
-                     
+                    wire:click="update({{ $user['item_id'] }})"
                     class="btn-ghost btn-sm text-yellow-400" 
                 />    
                 <x-button 
                     icon="o-trash" 
-                    wire:click="delete({{ $user['item_id'] }})" 
-                    wire:loading.attr="disabled"
-                    wire:target="delete({{ $user['item_id'] }})"
-                     
+                    wire:click="delete({{ $user['item_id'] }})"
                     class="btn-ghost btn-sm text-red-500" 
                 />
             </div>
@@ -70,9 +61,8 @@
     >
         <x-input 
             placeholder="Search..." 
-            wire:model.defer="search" 
-            icon="o-magnifying-glass" 
-            @keydown.enter="$wire.drawer = false; $wire.updatedSearch()"
+            wire:model.lazy="search" 
+            icon="o-magnifying-glass"
         />
         <x-slot:actions>
             <x-button label="Reset" icon="o-x-mark" wire:click="clear"  />
@@ -89,17 +79,12 @@
         class="lg:w-1/3"
     >
         <div class="space-y-4 p-2">
-            <!-- Name Input -->
-            <div>
-                <x-input 
-                    label="Name" 
-                    wire:model.defer="editingItem.name" 
-                    placeholder="Enter item name"
-                    :hint="$errors->first('editingItem.name')"
-                />
-            </div>
-
-            <!-- Price and Quantity Row -->
+            <x-input 
+                label="Name" 
+                wire:model.defer="editingItem.name" 
+                placeholder="Enter item name"
+                :hint="$errors->first('editingItem.name')"
+            />
             <div class="grid grid-cols-2 gap-4">
                 <x-input 
                     label="Price" 
@@ -109,7 +94,6 @@
                     placeholder="0.00"
                     :hint="$errors->first('editingItem.price')"
                 />
-                
                 <x-input 
                     label="Quantity" 
                     wire:model.defer="editingItem.quantity"
@@ -118,35 +102,26 @@
                     :hint="$errors->first('editingItem.quantity')"
                 />
             </div>
-
-            <!-- Link Input -->
-            <div>
-                <x-input 
-                    label="Link" 
-                    wire:model.defer="editingItem.href"
-                    placeholder="https://"
-                    :hint="$errors->first('editingItem.href')"
-                />
-            </div>
+            <x-input 
+                label="Link" 
+                wire:model.defer="editingItem.href"
+                type="url"
+                placeholder="https://example.com"
+                :hint="$errors->first('editingItem.href')"
+            />
         </div>
-
         <x-slot:actions>
-            <div class="flex justify-end gap-2">
-                <x-button 
-                    label="Cancel" 
-                    icon="o-x-mark"
-                    @click="$wire.myModal1 = false" 
-                />
-                <x-button 
-                    :label="$isCreating ? 'Create' : 'Save Changes'"
-                    icon="o-check"
-                    wire:click="saveItem" 
-                    wire:loading.attr="disabled"
-                    wire:target="saveItem"
-                    class="btn-primary"
-                    
-                />
-            </div>
+            <x-button 
+                label="Cancel" 
+                @click="$wire.myModal1 = false" 
+                icon="o-x-mark"
+            />
+            <x-button 
+                label="Save" 
+                icon="o-check" 
+                class="btn-primary" 
+                wire:click="saveItem" 
+            />
         </x-slot:actions>
     </x-modal>
     @endif

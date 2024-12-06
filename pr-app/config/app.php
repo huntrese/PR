@@ -123,4 +123,14 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'table_headers' => [
+        ['key' => 'item_id', 'label' => '#', 'class' => 'w-1'],
+        ['key' => 'name', 'label' => 'Name', 'class' => 'w-64'],
+        ['key' => 'price', 'label' => 'Price', 'class' => 'w-32'],
+        ['key' => 'quantity', 'label' => 'Quantity', 'class' => 'w-24'],
+        ['key' => 'href', 'label' => 'Link', 'class' => 'w-48'],
+    ],
+
+    
+
 ];

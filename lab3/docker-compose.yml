@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ftp_server:
+    image: stilliard/pure-ftpd:hardened
+    container_name: ftp_server
+    ports:
+      - "2121:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ./ftp_data:/home/testuser
+      - ./init.sh:/init.sh
+    environment:
+      - PUBLICHOST=localhost
+      - FTP_USER_NAME=testuser
+      - FTP_USER_PASS=testpass
+    command: /init.sh -j -Y 1 -E -Z -P 30000:30009

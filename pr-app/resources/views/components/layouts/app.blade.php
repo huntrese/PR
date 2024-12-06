@@ -8,6 +8,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+@auth
+<div data-username="{{ auth()->user()->username }}" id="chat-wrapper" class="chat-wrapper shadow border-red-100"> </div>
+@endauth
 <body class="min-h-screen font-sans antialiased bg-base-200/50 ">
 
     {{-- NAVBAR mobile only --}}
@@ -52,7 +55,7 @@
                 @endif
 
                 <x-menu-item title="Items" icon="o-sparkles" link="/" />
-                <x-menu-item title="Chat" icon="o-power" link="/" />
+                <x-menu-item title="Chat" icon="o-power" link="/chatroom" class="chatbliati"/>
                 <x-menu-item title="File" icon="o-sparkles" link="/" />
                 
             </x-menu>

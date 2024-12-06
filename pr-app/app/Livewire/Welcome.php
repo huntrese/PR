@@ -14,13 +14,16 @@ class Welcome extends Component
     use Toast, WithPagination;
 
     public $search = '';
-    
     public bool $drawer = false;
     public bool $myModal1 = false;
     public bool $isCreating = false;
-    
     public array $sortBy = ['column' => 'name', 'direction' => 'asc'];
     
+    // Add debounce to search
+    protected $debounce = [
+        'search' => 300
+    ];
+
     public $editingItem = [
         'item_id' => '',
         'name' => '',
@@ -47,7 +50,6 @@ class Welcome extends Component
         $this->resetPage();
     }
 
-    // Clear filters
     public function clear(): void
     {
         $this->reset('search', 'sortBy');
@@ -76,7 +78,7 @@ class Welcome extends Component
         try {
             Items::where('item_id', $id)->delete();
             DB::commit();
-            Cache::tags(['items'])->flush();
+            $this->clearCache();
             $this->warning("Deleted #$id", position: 'toast-bottom');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -90,27 +92,24 @@ class Welcome extends Component
         
         DB::beginTransaction();
         try {
+            $itemData = [
+                'name' => $this->editingItem['name'],
+                'price' => $this->editingItem['price'],
+                'quantity' => $this->editingItem['quantity'],
+                'href' => $this->editingItem['href']
+            ];
+
             if ($this->isCreating) {
-                Items::create([
-                    'name' => $this->editingItem['name'],
-                    'price' => $this->editingItem['price'],
-                    'quantity' => $this->editingItem['quantity'],
-                    'href' => $this->editingItem['href']
-                ]);
+                Items::create($itemData);
                 $message = 'Item created successfully.';
             } else {
                 Items::where('item_id', $this->editingItem['item_id'])
-                    ->update([
-                        'name' => $this->editingItem['name'],
-                        'price' => $this->editingItem['price'],
-                        'quantity' => $this->editingItem['quantity'],
-                        'href' => $this->editingItem['href']
-                    ]);
+                    ->update($itemData);
                 $message = 'Item updated successfully.';
             }
             
             DB::commit();
-            Cache::tags(['items'])->flush();
+            $this->clearCache();
             $this->myModal1 = false;
             $this->success($message, position: 'toast-bottom');
         } catch (\Exception $e) {
@@ -121,7 +120,8 @@ class Welcome extends Component
 
     public function headers(): array
     {
-        return Cache::remember('table_headers', now()->addDay(), function () {
+        $cacheKey = 'table_headers_v1';
+        return Cache::remember($cacheKey, now()->addDay(), function () {
             return [
                 ['key' => 'item_id', 'label' => '#', 'class' => 'w-1'],
                 ['key' => 'name', 'label' => 'Name', 'class' => 'w-64'],
@@ -135,16 +135,39 @@ class Welcome extends Component
 
     public function users()
     {
-        $cacheKey = 'users_' . $this->search . '_' . json_encode($this->sortBy) . '_' . $this->getPage();
-        
+        // Create a unique cache key based on current filters
+        $cacheKey = sprintf(
+            'items_page_%s_search_%s_sort_%s_%s',
+            $this->getPage(),
+            $this->search,
+            $this->sortBy['column'],
+            $this->sortBy['direction']
+        );
+
         return Cache::remember($cacheKey, now()->addMinutes(5), function () {
             return Items::query()
                 ->when($this->search, function ($query) {
-                    $query->where('name', 'like', '%' . $this->search . '%');
+                    $query->where(function($q) {
+                        $q->where('name', 'like', '%' . $this->search . '%')
+                          ->orWhere('item_id', 'like', '%' . $this->search . '%');
+                    });
                 })
                 ->orderBy($this->sortBy['column'], $this->sortBy['direction'])
-                ->paginate(10);
+                ->simplePaginate(10);
         });
+    }
+
+    protected function clearCache(): void
+    {
+        // Clear all cached items based on current page and filters
+        $cacheKey = sprintf(
+            'items_page_%s_search_%s_sort_%s_%s',
+            $this->getPage(),
+            $this->search,
+            $this->sortBy['column'],
+            $this->sortBy['direction']
+        );
+        Cache::forget($cacheKey);
     }
 
     public function render()
