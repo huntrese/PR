@@ -1,28 +1,38 @@
 version: '3.8'
-services:
-  lab1-http-server: # Name of your container
-    image: nicug/server-pr-lab1:latest # The Docker image to use
-    ports:
-      - "8000:8000" # Map port 8000 on your host to port 8000 in the container
-    environment:
-      - PORT=8000
-    depends_on:
-      - db
-    networks:
-      - lab_network
 
+services:
+  rabbitmq:
+    image: 'rabbitmq:3-management-alpine'
+    container_name: iepure_MQ
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    
+  ftp_server:
+    image: 'stilliard/pure-ftpd:hardened'
+    container_name: ftp_server
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      FTP_USER_NAME: testuser
+      FTP_USER_PASS: testpass
+      FTP_USER_HOME: /home/testuser
+    volumes:
+      - ./ftp_data:/home/testuser
+    
   db:
     image: mysql:latest
     ports: 
-      - "3207:3306" # Map port 3306 in the container to port 3207 on the host
+      - "3207:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root_password # Replace with your root password
-      MYSQL_DATABASE: lab_db             # Initial database name
-      MYSQL_USER: lab_user               # Custom database user
-      MYSQL_PASSWORD: lab_password       # Custom user password
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: lab_db
+      MYSQL_USER: lab_user
+      MYSQL_PASSWORD: lab_password
     volumes:
       - db_data:/var/lib/mysql
-      - ./init:/docker-entrypoint-initdb.d # Mount the init directory
+      - ./init:/docker-entrypoint-initdb.d
     networks:
       - lab_network
 
